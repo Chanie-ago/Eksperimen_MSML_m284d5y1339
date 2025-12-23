@@ -18,4 +18,4 @@ def clean_data(input_path, output_path):
     print("Data berhasil dibersihkan")
 
 if __name__ == "__main__":
-    clean_data("../dataset_raw/liver.csv", "liver_preprocessed.csv")
+    clean_data("../dataset_raw/liver_raw.csv", "liver_preprocessed.csv")
