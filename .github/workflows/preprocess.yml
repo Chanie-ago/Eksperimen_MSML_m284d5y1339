@@ -1,0 +1,33 @@
+name: Auto Preprocessing Data Liver
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install pandas scikit-learn
+
+    - name: Run preprocessing script
+      run: |
+        cd preprocessing
+        python automate_m284d5y1339.py
+
+    - name: Upload processed data
+      uses: actions/upload-artifact@v3
+      with:
+        name: liver-clean-dataset
+        path: preprocessing/liver_preprocessed.csv
